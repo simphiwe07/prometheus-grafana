@@ -4,7 +4,7 @@ services:
     image: prom/prometheus
     container_name: prometheus
     volumes:
-      - /home/simphiwe-workspace/bigs-devops/prometheus-grafana/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     
@@ -14,7 +14,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - /home/simphiwe-workspace/bigs-devops/prometheus-grafana/grafana/grafana.ini:/etc/grafana/grafana.ini
-      - /home/simphiwe-workspace/bigs-devops/prometheus-grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana.ini:/etc/grafana/grafana.ini
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
     links:
       - prometheus
